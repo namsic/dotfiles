@@ -1,0 +1,1 @@
+WD="$HOME/workspace"

@@ -1,6 +1,3 @@
----@diagnostic disable-next-line: undefined-global
-local vim = vim
-
 vim.opt.number = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2

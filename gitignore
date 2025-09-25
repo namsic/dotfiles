@@ -1,13 +1,17 @@
+# Output
 *.exe
 *.out
 *.log
 *.pid
+.cache/
 
 # OS
 .DS_Store
 
 # IDE
-.vscode
+.vscode/
+.idea/
+.claude/
 
 # Python
 .venv/

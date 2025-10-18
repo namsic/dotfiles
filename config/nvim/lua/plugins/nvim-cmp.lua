@@ -9,7 +9,6 @@ return {
   },
   config = function()
     local cmp = require("cmp")
-    local select_opts = { behavior = cmp.SelectBehavior.Select }
 
     cmp.setup({
       completion = {
@@ -20,15 +19,9 @@ return {
         { name = "nvim_lsp" },
       }),
 
-      mapping = {
-        ['<c-p>'] = cmp.mapping.select_prev_item(select_opts),
-        ['<c-n>'] = cmp.mapping.select_next_item(select_opts),
-        ['<c-y>'] = cmp.mapping.confirm({ select = true }),
-
-        ['<up>'] = cmp.mapping.select_prev_item(select_opts),
-        ['<down>'] = cmp.mapping.select_next_item(select_opts),
-        ['<cr>'] = cmp.mapping.confirm({ select = false }),
-      },
+      mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+      }),
     })
   end,
 }

@@ -1,10 +1,39 @@
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-  keys = {
-    { "<leader>gsN", "<cmd>Gitsigns prev_hunk<cr>", desc = "Previous hunk" },
-    { "<leader>gsn", "<cmd>Gitsigns next_hunk<cr>", desc = "Next hunk" },
-    { "<leader>gsp", "<cmd>Gitsigns preview_hunk_inline<cr>", desc = "Preview hunk" },
-  },
+  config = function()
+    require("gitsigns").setup({
+      current_line_blame = true,
+      on_attach = function(bufnr)
+        local gitsigns = require("gitsigns")
+
+        local function map(mode, lhs, rhs, opts)
+          opts = opts or {}
+          opts.buffer = bufnr
+          vim.keymap.set(mode, lhs, rhs, opts)
+        end
+
+        map("n", "]c", function()
+          if vim.wo.diff then
+            vim.cmd.normal({ "]c", bang = true })
+          else
+            gitsigns.nav_hunk("next")
+          end
+        end, { desc = "Next hunk" })
+
+        map("n", "[c", function()
+          if vim.wo.diff then
+            vim.cmd.normal({ "[c", bang = true })
+          else
+            gitsigns.nav_hunk("prev")
+          end
+        end, { desc = "Previous hunk" })
+
+        map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview hunk" })
+        map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Stage hunk" })
+        map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "Reset hunk" })
+      end,
+    })
+  end,
 }
 

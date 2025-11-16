@@ -1,6 +1,12 @@
 Host github.com
   IdentityFile ~/.ssh/namjae_kim_namsic_dev
 
+Host devbox.gcp
+  ProxyCommand gcloud compute start-iap-tunnel devbox 22 --listen-on-stdin --project=namsic-develop --zone=asia-northeast3-a
+  User namjae_kim_namsic_dev
+  IdentityFile ~/.ssh/namjae_kim_namsic_dev
+# gcloud compute ssh  devbox --project=namsic-develop --zone=asia-northeast3-a --tunnel-through-iap --ssh-key-file=~/.ssh/namjae_kim_namsic_dev
+
 # example
 HOST myserver
   HostName 127.0.0.1

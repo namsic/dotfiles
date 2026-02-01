@@ -8,6 +8,9 @@
     autocrlf = input
     excludesfile = ~/.gitignore
 
+[clone]
+    defaultRemoteName = namsic
+
 [pull]
     ff = only
 

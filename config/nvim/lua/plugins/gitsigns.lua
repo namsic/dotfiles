@@ -3,7 +3,6 @@ return {
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   config = function()
     require("gitsigns").setup({
-      current_line_blame = true,
       on_attach = function(bufnr)
         local gitsigns = require("gitsigns")
 
@@ -29,7 +28,6 @@ return {
           end
         end, { desc = "Previous hunk" })
 
-        map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview hunk" })
         map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Stage hunk" })
         map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "Reset hunk" })
       end,

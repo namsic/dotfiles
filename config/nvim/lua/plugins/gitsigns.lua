@@ -28,10 +28,6 @@ return {
             gitsigns.nav_hunk("prev")
           end
         end, { desc = "Previous hunk" })
-
-        map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview hunk" })
-        map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Stage hunk" })
-        map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "Reset hunk" })
       end,
     })
   end,

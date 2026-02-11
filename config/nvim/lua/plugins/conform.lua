@@ -3,6 +3,7 @@ return {
   event = { "BufWritePre" },
   opts = {
     formatters_by_ft = {
+      proto = { "clang-format" },
       javascript = { "prettier" },
       typescript = { "prettier" },
       javascriptreact = { "prettier" },

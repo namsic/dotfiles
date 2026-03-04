@@ -3,15 +3,12 @@ return {
   event = { "BufWritePre" },
   opts = {
     formatters_by_ft = {
-      javascript = { "prettier" },
-      typescript = { "prettier" },
-      javascriptreact = { "prettier" },
-      typescriptreact = { "prettier" },
-      json = { "prettier" },
-      yaml = { "prettier" },
-      markdown = { "prettier" },
-      html = { "prettier" },
       css = { "prettier" },
+      html = { "prettier" },
+      javascript = { "prettier" },
+      json = { "prettier" },
+      markdown = { "prettier" },
+      yaml = { "prettier" },
     },
     format_on_save = {
       timeout_ms = 500,

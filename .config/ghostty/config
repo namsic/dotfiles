@@ -1,0 +1,4 @@
+font-family = "D2Coding ligature"
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = ssh-env

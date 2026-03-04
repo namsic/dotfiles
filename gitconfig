@@ -11,6 +11,9 @@
 [clone]
     defaultRemoteName = namsic
 
+[fetch]
+    prune = true
+
 [pull]
     ff = only
 
@@ -25,4 +28,7 @@
 
 [init]
    defaultBranch = main
+
+[diff]
+   tool = vimdiff
 

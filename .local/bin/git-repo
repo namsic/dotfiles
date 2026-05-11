@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -e
+
+SUBCMD="$1"; shift
+OWNER="${1%%/*}"
+URL="git@github.com:$1.git"
+
+case "$SUBCMD" in
+  clone) git clone --origin "$OWNER" "$URL" ;;
+  add)   git remote add "$OWNER" "$URL" ;;
+  *)     echo "Usage: git repo <clone|add> <owner/repo>" >&2; exit 1 ;;
+esac

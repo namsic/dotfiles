@@ -4,7 +4,7 @@
     signingkey = ~/.ssh/namjae_kim_namsic_dev.pub
 
 [core]
-    editor = vim
+    editor = vi
     autocrlf = input
     excludesfile = ~/.gitignore
 

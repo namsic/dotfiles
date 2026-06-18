@@ -5,6 +5,7 @@ return {
       clangd = {},
       cmake = {},
       gopls = {},
+      jdtls = {},
       lua_ls = { -- lua-langue-server
         settings = {
           Lua = {

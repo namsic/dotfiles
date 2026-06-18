@@ -1,12 +1,33 @@
 #!/usr/bin/env sh
+
+# Usage:
+#   git repo clone <owner/repo>   - bare clone and fetch
+#   git repo add <owner/repo>     - add remote and fetch
+#
+# After clone, add worktrees with:
+#   git worktree add <path> <owner>/<branch>
+#   git worktree add -b <new-branch> <path> <owner>/<branch>
+
 set -e
 
 SUBCMD="$1"; shift
 OWNER="${1%%/*}"
+REPO="${1##*/}"
 URL="git@github.com:$1.git"
 
 case "$SUBCMD" in
-  clone) git clone --origin "$OWNER" "$URL" ;;
-  add)   git remote add "$OWNER" "$URL" ;;
-  *)     echo "Usage: git repo <clone|add> <owner/repo>" >&2; exit 1 ;;
+  clone)
+    mkdir "$REPO"
+    git -C "$REPO" init --bare .git
+    git -C "$REPO" remote add "$OWNER" "$URL"
+    git -C "$REPO" fetch "$OWNER"
+    ;;
+  add)
+    git remote add "$OWNER" "$URL"
+    git fetch "$OWNER"
+    ;;
+  *)
+    echo "Usage: git repo <clone|add> <owner/repo>" >&2
+    exit 1
+    ;;
 esac

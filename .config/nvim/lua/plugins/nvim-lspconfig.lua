@@ -15,6 +15,7 @@ return {
           },
         },
       },
+      ruff = {},
       rust_analyzer = {},
     }
 

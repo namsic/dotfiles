@@ -1,33 +1,37 @@
-[user]
-    name = Namjae Kim
-    email = namjae.kim@namsic.dev
-    signingkey = ~/.ssh/namjae_kim_namsic_dev.pub
+[alias]
+	alias = config --get-regexp '^alias\\.'
+	lg = log --graph --oneline
+
+[commit]
+	gpgSign = true
 
 [core]
-    editor = vi
-    autocrlf = input
-    excludesfile = ~/.gitignore
-
-[fetch]
-    prune = true
-
-[pull]
-    ff = only
-
-[alias]
-    alias = config --get-regexp '^alias\\.'
-    st = status -s
-    cs = commit -S
-    lg = log --graph --oneline
-
-[gpg]
-    format = ssh
-
-[init]
-   defaultBranch = main
+	autocrlf = input
+	editor = vi
 
 [diff]
-   tool = vimdiff
+	tool = vimdiff
+
+[fetch]
+	prune = true
+
+[gpg]
+	format = ssh
+
+[init]
+	defaultBranch = main
+
+[pull]
+	ff = only
+
+[status]
+	branch = true
+	short = true
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
+[user]
+	email = namjae.kim@namsic.dev
+	name = Namjae Kim
+	signingkey = ~/.ssh/namjae_kim_namsic_dev.pub

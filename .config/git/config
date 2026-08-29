@@ -24,6 +24,9 @@
 [pull]
 	ff = only
 
+[push]
+	default = nothing
+
 [status]
 	branch = true
 	short = true

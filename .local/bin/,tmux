@@ -1,0 +1,10 @@
+#!/bin/sh
+
+window="$(tmux list-windows -a -F '#S:#I #W' 2>/dev/null | fzf)" || exit 0
+target="${window%% *}"
+
+if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$target"
+else
+    tmux select-window -t "$target" && tmux attach-session -t "${target%:*}"
+fi

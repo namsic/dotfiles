@@ -1,9 +1,0 @@
-#!/bin/sh
-
-session="$(tmux list-sessions -F '#S' 2>/dev/null | fzf)" || exit 0
-
-if [ -n "$TMUX" ]; then
-    tmux switch-client -t "$session"
-else
-    tmux attach-session -t "$session"
-fi

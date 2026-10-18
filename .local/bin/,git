@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+set -e
+
+SUBCMD="$1"; shift
+
+case "$SUBCMD" in
+  init)
+    git init --bare "${1:-.}/.git"
+    ;;
+  remote)
+    git remote add "${1%%/*}" "git@github.com:$1.git"
+    ;;
+  switch)
+    set -- "$(echo "$1" | tr : /)"
+    git fetch "${1%%/*}" "${1#*/}"
+    git switch -d "$1"
+    ;;
+  prune)
+    git remote | while read -r remote; do
+      git remote prune "$remote"
+    done
+    ;;
+  *)
+    echo "Usage: ,git <init|remote|switch|prune> ..." >&2
+    exit 1
+    ;;
+esac
